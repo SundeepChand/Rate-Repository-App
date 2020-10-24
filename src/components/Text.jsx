@@ -19,6 +19,9 @@ const styles = StyleSheet.create({
   colorBlack: {
     color: theme.colors.black,
   },
+  colorWhite: {
+    color: theme.colors.white,
+  },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading,
   },
@@ -28,20 +31,26 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  fontWeightSemiBold: {
+    fontWeight: theme.fontWeights.semiBold,
+  },
 });
 
-const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ color, fontSize, fontWeight, style, children }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'textPrimary' && styles.colorPrimary,
+    color === 'textBlack' && styles.colorBlack,
+    color === 'textWhite' && styles.colorWhite,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontSize === 'heading' && styles.fontSizeHeading,
     fontWeight === 'bold' && styles.fontWeightBold,
+    fontWeight === 'semi-bold' && styles.fontWeightSemiBold,
     style,
   ];
 
-  return <NativeText style={textStyle} {...props} />;
+  return <NativeText style={textStyle}>{children}</NativeText>;
 };
 
 export default Text;

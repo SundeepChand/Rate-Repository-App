@@ -1,6 +1,5 @@
 import React from 'react';
 import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
-import Constants from 'expo-constants';
 
 import Text from './Text';
 import theme from '../../themes';
